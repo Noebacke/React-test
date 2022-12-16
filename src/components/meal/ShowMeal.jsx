@@ -20,6 +20,7 @@ const ShowMeal = (props)=>{
         <div id="block_of_meals">
             <h1>{mealData.strMeal}</h1> 
             <img src={mealData.strMealThumb} className="meal_img"></img>
+            <div id="id_of_meal">{mealData.idMeal}</div>
             <div>{mealData.strCategory}</div>
             <div>{mealData.strInstructions}</div>
             <div>

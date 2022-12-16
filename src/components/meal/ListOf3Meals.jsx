@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import ShowMeal from "./ShowMeal";
+import { Link } from "react-router-dom";
+import ShowPartOfMeal from "./ShowPartOfMeal";
 
-const ListOfMeals = ()=>{
+const ListOf3Meals = ()=>{
 
     const [mealsData, setMealsData]= useState([])
 
@@ -18,10 +18,6 @@ const ListOfMeals = ()=>{
         return [mealsData[0],mealsData[1],mealsData[2]];
     }
 
-    const navigate = useNavigate();
-    const handleClick = ()=>{
-        navigate('/list');
-    };
     return(
         <div>
             <div>
@@ -30,7 +26,7 @@ const ListOfMeals = ()=>{
                     getLastMeal().map((meals)=>{
                         return(
                             <div id="meal">
-                                <ShowMeal meals={meals}/>
+                                <ShowPartOfMeal meals={meals}/>
                             </div>
                         )
                     }))  : (
@@ -40,9 +36,11 @@ const ListOfMeals = ()=>{
                     )
                 }
             </div>
-            <button onClick={handleClick} id="button_of_view_list">Voi +</button>
+            <Link to="/list"/>
+                <button id="button_of_navigate">Voi +</button>
+            <Link/>
         </div>
     )
 }
 
-export default ListOfMeals ;
+export default ListOf3Meals ;

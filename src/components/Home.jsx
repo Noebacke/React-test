@@ -1,8 +1,8 @@
 import { useEffect,useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import ListOfMeals from "./meal/ListOfMeals";
-import ShowMeal from "./meal/ShowMeal";
+import ListOf3Meals from "./meal/ListOf3Meals";
+import ShowPartOfMeal from "./meal/ShowPartOfMeal";
 
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
             <div>
                 <div id="simple_random_meal">
                     {mealRandomData ? (
-                        <ShowMeal meals={mealRandomData} />
+                        <ShowPartOfMeal meals={mealRandomData} />
                     ) : (
                         <div>
                             <h1>Chargement de la recette...</h1>
@@ -33,7 +33,7 @@ const Home = () => {
                     )}
                 </div>
                 <div id="3_meals_of_list">
-                    <ListOfMeals/>
+                    <ListOf3Meals/>
                 </div>
             </div>
             <Footer/>
