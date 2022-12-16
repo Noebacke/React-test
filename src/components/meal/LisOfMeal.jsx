@@ -25,8 +25,8 @@ const ListOfMeal = (props)=>{
                 </Link>
                 {
                     props.meal ? (
-                        mealsData ? (
-                            mealsData.map((meals) => {
+                        props.meal ? (
+                            props.meal.map((meals) => {
                                 return (
                                     <div id="meal">
                                         <ShowPartOfMeal meals={meals} />
@@ -38,8 +38,8 @@ const ListOfMeal = (props)=>{
                             </div>
                         )
                     ) : (
-                        props.meal ? (
-                            props.meal.map((meals) => {
+                        mealsData ? (
+                            mealsData.map((meals) => {
                                 return (
                                     <div id="meal">
                                         <ShowPartOfMeal meals={meals} />
@@ -47,7 +47,7 @@ const ListOfMeal = (props)=>{
                                 );
                             })) : (
                             <div>
-                                <h1>Chargement de la recette...</h1>
+                                <h1>Chargement des recettes...</h1>
                             </div>
                         )
                     )
