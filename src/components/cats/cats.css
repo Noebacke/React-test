@@ -1,0 +1,10 @@
+#meal{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 44%;
+    margin: auto;
+    margin-top: 10px;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ShowCatsDetails from "./ShowcatsDetails";
+import './cats.css';
 
 
 const ShowCats = ()=>{

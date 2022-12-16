@@ -1,4 +1,5 @@
 import { Link, } from "react-router-dom";
+import './PartOfMeal.css'
 
 
 const ShowPartOfMeal = (props)=>{
