@@ -1,12 +1,14 @@
 import { useEffect,useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import ListOfMeals from "./meal/ListOfMeals";
 import ShowMeal from "./meal/ShowMeal";
 
 
 const Home = () => {
 
     const [mealRandomData, setMealRandomData] = useState(null);
+    
 
     useEffect(()=>{
         (async ()=>{
@@ -20,13 +22,20 @@ const Home = () => {
     return(
         <>
             <Header/>
-            {mealRandomData ? (
-                <ShowMeal meals={mealRandomData}/>
-            ) : (
-                <div>
-                    <h1>Chargement de la recette...</h1>
+            <div>
+                <div id="simple_random_meal">
+                    {mealRandomData ? (
+                        <ShowMeal meals={mealRandomData} />
+                    ) : (
+                        <div>
+                            <h1>Chargement de la recette...</h1>
+                        </div>
+                    )}
                 </div>
-            )}
+                <div id="3_meals_of_list">
+                    <ListOfMeals/>
+                </div>
+            </div>
             <Footer/>
         </>
         

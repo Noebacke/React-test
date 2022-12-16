@@ -1,7 +1,7 @@
 const ShowMeal = (props)=>{
 
     const mealData = props.meals;
-    console.log(props.meals);
+    
 
     const getIngredients = ()=>{
         const ingredients = [];
@@ -25,7 +25,7 @@ const ShowMeal = (props)=>{
             <div>
                 {getIngredients().map((ingredient)=>{
                     return(
-                        <p>{ingredient}</p>
+                        <li>{ingredient}</li>
                     )
                 })}
             </div>
