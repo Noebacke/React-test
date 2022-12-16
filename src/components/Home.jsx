@@ -5,7 +5,9 @@ import ListOf3Meals from "./meal/ListOf3Meals";
 import ShowPartOfMeal from "./meal/ShowPartOfMeal";
 
 
-const Home = () => {
+
+const Home = (props) => {
+
 
     const [mealRandomData, setMealRandomData] = useState(null);
     
@@ -21,7 +23,7 @@ const Home = () => {
 
     return(
         <>
-            <Header/>
+            <Header handleSearch={props.handleSearch}/>
             <div>
                 <div id="simple_random_meal">
                     {mealRandomData ? (

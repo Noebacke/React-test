@@ -1,15 +1,42 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import ShowCats from './components/cats/ShowCats';
 import Home from './components/Home';
 import DescriptionOfMeal from './components/meal/DescriptionOfMeal';
 import ListOfMeal from './components/meal/LisOfMeal';
+import ResultOfSearch from './components/Search/ResultOfSearch';
 
 function App() {
+
+  const [mealData, setMealsData] = useState([])
+  const [returnErrorMeal, setReturnErrorMeal] = useState();
+  
+  const returnError = () => {
+      <div id="error_search_meal">
+          Aucun résulat ne correspond à la recherche...
+      </div>
+  }
+
+  const handleChange = async (e) => {
+      const mealResponses = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + e.target.value);
+      const mealData = await mealResponses.json();
+
+      if (mealData.meals.length > 0) {
+          setMealsData(mealData.meals);
+      } else {
+          console.error("Aucun resultats ne corresponds à la recherche");
+          setReturnErrorMeal(true);
+      }
+  }
+
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/list' element={<ListOfMeal/>}/>
+        <Route path='/' element={<Home handleSearch={handleChange}/>} />
+        <Route path='/list' element={<ListOfMeal meals={mealData}/>}/>
         <Route path='/meal/:id' element={<DescriptionOfMeal/>}/>
+        <Route path='/cats' element={<ShowCats/>}/>
       </Routes>
     </BrowserRouter>
   );

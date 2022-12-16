@@ -1,32 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import ShowMeal from "./ShowMeal";
+import Header from "../Header";
+import ShowPartOfMeal from "../meal/ShowPartOfMeal";
 
-const DescriptionOfMeal = ()=>{
-    const [mealsData, setMealsData]= useState([]);
+const ResultOfSearch = (props)=>{
 
-    const { id} = useParams();
-
-    useEffect(()=>{
-        (async () => {
-            const mealsData = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i='+ id);
-            const mealsListData = await mealsData.json();
-            setMealsData(mealsListData.meals);
-        })();
-    },[]);
-
+    console.log(props.meals)
    
     return(
         <div>
+            <Header/>
             <Link to="/">
                 <button id="button_of_navigate">Retour au menu Home</button>
             </Link>
             {
-                mealsData ? (
-                    mealsData.map((meals) => {
+                props.meals ? (
+                    props.meals.map((meals) => {
                         return (
                             <div id="meal">
-                                <ShowMeal meals={meals} />
+                                <ShowPartOfMeal meals={meals} />
                             </div>
                         );
                     })) : (
@@ -39,4 +31,5 @@ const DescriptionOfMeal = ()=>{
     )
 }
 
-export default DescriptionOfMeal;
+
+export default ResultOfSearch;

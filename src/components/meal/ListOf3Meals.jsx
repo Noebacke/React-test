@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ShowPartOfMeal from "./ShowPartOfMeal";
 
 const ListOf3Meals = ()=>{
@@ -16,6 +16,10 @@ const ListOf3Meals = ()=>{
 
     const getLastMeal = () => {
         return [mealsData[0],mealsData[1],mealsData[2]];
+    }
+    const navigate = useNavigate();
+    const handleClick = ()=>{
+        navigate('/list');
     }
 
     return(
@@ -36,9 +40,8 @@ const ListOf3Meals = ()=>{
                     )
                 }
             </div>
-            <Link to="/list"/>
-                <button id="button_of_navigate">Voi +</button>
-            <Link/>
+            <button id="button_of_navigate" onClick={handleClick}> Voir + </button>
+            
         </div>
     )
 }

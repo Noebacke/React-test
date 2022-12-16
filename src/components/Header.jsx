@@ -1,7 +1,12 @@
-const Header = ()=>{
+import SearchBar from "./Search/SearchBar";
+
+const Header = (props)=>{
+
+    console.log(props)
+
     return(
        <h1>
-        Header
+        <SearchBar  handleSearch={props.handleSearch}/>
        </h1>
     )
 }
